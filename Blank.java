@@ -1,7 +1,16 @@
-public class Blank extends House {
+public class Blank extends House implements Exchangeable{
     int countOfBuilding=0;
     boolean isHotel=false;
-    int price=100;
+
+    @Override
+    public int getPrice()
+    {
+        if(isHotel)
+        {
+            return 800 ;//nabayad 600 bashe bayad beporsim
+        }
+        return 100+countOfBuilding*150;
+    }
 
     @Override
     double getCost() {
