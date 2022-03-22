@@ -2,12 +2,16 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class Player {
-    String name;
+    final String name;
     int index;
     double budget = 1500;
     ArrayList<Integer> properties = new ArrayList<Integer>();
     ArrayList<Card> cards = new ArrayList<Card>();
 
+    public Player(String name)
+    {
+        this.name = name;
+    }
 //    public double getBudget() {
 //        return budget;
 //    }
