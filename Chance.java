@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class Chance
+public class Chance extends House
 {
     static Card[] cards = new Card[7];
     static

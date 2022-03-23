@@ -1,4 +1,4 @@
-public class Airport {
+public class Airport extends House {
     void fly(int index,Player player){
         if (index==player.index){
             System.out.println("***");
@@ -12,4 +12,5 @@ public class Airport {
         System.out.println("can not fly");
         //2 dalil vogod dard;
     }
+    
 }

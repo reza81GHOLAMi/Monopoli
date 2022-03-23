@@ -1,3 +1,3 @@
-public class Bank
+public class Bank extends House
 {
 }
