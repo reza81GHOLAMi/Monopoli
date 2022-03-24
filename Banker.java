@@ -6,6 +6,18 @@ public class Banker
     ArrayList<Player> players = new ArrayList<Player>();
     Map map = Map.getInstance();
 
+    void addPlayer(String name)
+    {
+        if(players.size()<4)
+        {
+            players.add(new Player(name));
+        }
+        else
+        {
+            System.out.println("Maximum Players reached."+name+" was not added.please type 'start_game'");
+        }
+    }
+
     int survivors()
     {
         int survivor = players.size() ;
