@@ -32,6 +32,11 @@ public class Map
         houses[23]=new Chance();
     }
 
+    public House getHouse(int i)
+    {
+        return houses[i];
+    }
+
     static Map getInstance()
     {
         return map ;
