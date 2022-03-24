@@ -3,7 +3,8 @@ import java.util.Objects;
 
 public class Player {
     final String name;
-    int index;
+    int index=0;
+    boolean lost = false;
     double budget = 1500;
     ArrayList<Integer> properties = new ArrayList<Integer>();
     ArrayList<Card> cards = new ArrayList<Card>();
