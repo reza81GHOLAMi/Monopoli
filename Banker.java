@@ -5,6 +5,20 @@ public class Banker
     final String name = "Banker";
     ArrayList<Player> players = new ArrayList<Player>();
     Map map = Map.getInstance();
+
+    int survivors()
+    {
+        int survivor = players.size() ;
+        for (Player player : players)
+        {
+            if (player.lost)
+            {
+                survivor -= 1;
+            }
+        }
+        return survivor;
+    }
+
     void sell (int index, Player player)
     {
         if(isOwner(index , player))
