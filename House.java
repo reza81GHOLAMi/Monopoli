@@ -2,7 +2,7 @@ public abstract class House
 {
     Color color;
     String owner = "Banker";
-    abstract void action () ;
+    abstract void action (Player player) ;
 
     public House(Color color)
     {
