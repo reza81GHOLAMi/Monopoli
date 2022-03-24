@@ -18,13 +18,30 @@ public class Blank extends House implements Exchangeable{
     }
 
     @Override
-    double getCost() {
-        if (isHotel) {
-            return 50 + countOfBuilding * 100;
+    double getCost(Player player)
+    {
+        int cost = 0;
+        if (!(owner.equals("Banker") || owner.equals(player.name)))
+        {
+            if (isHotel)
+            {
+                cost = 600;
+            } else
+            {
+                cost = 50 + countOfBuilding * 100;
+            }
+            if (sameColor(owner, this.color))
+                cost *= 2;
         }
-        return 600;
+        return cost;
     }
-    
+
+    @Override
+    void action(Player player)
+    {
+        player.budget -= getCost(player);
+    }
+
     void build (Player player){
         // TODO
     }
