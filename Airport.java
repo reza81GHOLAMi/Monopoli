@@ -1,5 +1,9 @@
 public class Airport extends House {
-    void fly(int index,Player player){
+    public Airport() {
+        super(color.White);
+    }
+
+    void fly(int index, Player player){
         if (index==player.index){
             System.out.println("***");
             return;

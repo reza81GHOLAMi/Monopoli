@@ -1,5 +1,10 @@
 public class Cinema extends House implements Exchangeable
 {
+    public Cinema(Color color)
+    {
+        super(color);
+    }
+
     @Override
     double getCost()
     {

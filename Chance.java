@@ -2,7 +2,13 @@ import java.util.Random;
 
 public class Chance extends House
 {
+
+    public Chance() {
+        super(color.White);
+    }
+
     static Card[] cards = new Card[7];
+
     static
     {
         cards[0] = new Card("200$");
@@ -13,7 +19,6 @@ public class Chance extends House
         cards[5] = new Card("TaxFree");
         cards[6] = new Card("Charity");
     }
-
 
     public Card getCard()
     {

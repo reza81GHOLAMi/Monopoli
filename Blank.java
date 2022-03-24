@@ -1,6 +1,11 @@
 public class Blank extends House implements Exchangeable{
+
     int countOfBuilding=0;
     boolean isHotel=false;
+
+    public Blank(Color color) {
+        super(color);
+    }
 
     @Override
     public int getPrice()
