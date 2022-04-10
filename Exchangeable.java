@@ -1,9 +1,14 @@
-public interface Exchangeable
+public abstract class Exchangeable extends House
 {
-    int getPrice();
-    double getCost(Player player);
+    public Exchangeable(Color color) {
+        super(color);
+    }
+    public abstract int getPrice();
+    protected abstract double  getCost(Player player);
 
-    default boolean sameColor(String name, Color color)
+    abstract void reset();
+
+    protected boolean sameColor(String name, Color color)
     {
         int count = 0;
         for (int i = 0; i < 24; i++)

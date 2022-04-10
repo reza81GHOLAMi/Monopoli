@@ -1,5 +1,6 @@
 public abstract class House
 {
+    //final static Banker banker=Banker.getInstance();
     Color color;
     String owner = "Banker";
     abstract void action (Player player) ;
@@ -10,7 +11,3 @@ public abstract class House
     }
 }
 
-enum Color
-{
-    Green, Red, Blue, White, Yellow
-}

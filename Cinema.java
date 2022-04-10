@@ -1,8 +1,12 @@
-public class Cinema extends House implements Exchangeable
+public class Cinema extends Exchangeable
 {
     public Cinema(Color color)
     {
         super(color);
+    }
+    @Override
+    public void reset() {
+        owner="Banker";
     }
 
     int cinemaCount(String name)
@@ -35,7 +39,15 @@ public class Cinema extends House implements Exchangeable
     @Override
     void action(Player player)
     {
-        player.budget-= getCost(player);
+        Banker banker = Banker.getInstance();
+        if (player.budget<getCost(player)){
+            banker.debt(getCost(player),player);
+        }
+        player.budget -= getCost(player);
+        if(!owner.equals("Banker"))
+        {
+            banker.getOwner(owner).budget+=getCost(player);
+        }
     }
 
 

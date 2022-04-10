@@ -1,25 +1,36 @@
-public class Blank extends House implements Exchangeable{
+public class Blank extends Exchangeable
+{
 
-    int countOfBuilding=0;
-    boolean isHotel=false;
+    int countOfBuilding = 0;
+    boolean isHotel = false;
     int[] blanks = {1, 6, 8, 11, 13, 17, 18, 22};
 
-    public Blank(Color color) {
+    public Blank(Color color)
+    {
         super(color);
+    }
+
+    @Override
+    public void reset()
+    {
+        owner = "Banker";
+        isHotel = false;
+        countOfBuilding = 0;
+
     }
 
     @Override
     public int getPrice()
     {
-        if(isHotel)
+        if (isHotel)
         {
-            return 800 ;//nabayad 600 bashe bayad beporsim
+            return 800;//nabayad 600 bashe bayad beporsim
         }
-        return 100+countOfBuilding*150;
+        return 100 + countOfBuilding * 150;
     }
 
     @Override
-    double getCost(Player player)
+    protected double getCost(Player player)
     {
         int cost = 0;
         if (!(owner.equals("Banker") || owner.equals(player.name)))
@@ -40,7 +51,14 @@ public class Blank extends House implements Exchangeable{
     @Override
     void action(Player player)
     {
+        Banker banker = Banker.getInstance();
+        if (player.budget < getCost(player))
+        {
+            banker.debt(getCost(player), player);
+        }
         player.budget -= getCost(player);
+        if (!owner.equals("Banker"))
+            banker.getOwner(owner).budget += getCost(player);
     }
 
     int mapBulidings()
@@ -90,25 +108,19 @@ public class Blank extends House implements Exchangeable{
                     {
                         player.budget -= 150;
                         countOfBuilding += 1;
-                    }
-                    else System.out.println("not enough budget to build ");
-                }
-                else if (countOfBuilding == 4) //build hotel
+                    } else System.out.println("not enough budget to build ");
+                } else if (countOfBuilding == 4) //build hotel
                 {
                     if (player.budget > 100)
                     {
                         player.budget -= 100;
                         countOfBuilding += 1;
                         isHotel = true;
-                    }
-                    else System.out.println("not enough budget to establish a hotel ");
-                }
-                else System.out.println("you already have a hotel in this blank");
+                    } else System.out.println("not enough budget to establish a hotel ");
+                } else System.out.println("you already have a hotel in this blank");
                 return;
-            }
-            else System.out.println("divide your buildings equally");
-        }
-        else System.out.println("you are not the owner of this blank");
+            } else System.out.println("divide your buildings equally");
+        } else System.out.println("you are not the owner of this blank");
     }
 
 }

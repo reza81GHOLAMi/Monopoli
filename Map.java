@@ -1,7 +1,7 @@
 
 public class Map
 {
-    static Map map = new Map();
+    static private Map map = new Map();
     House[] houses = new House[24];
 
     private Map()

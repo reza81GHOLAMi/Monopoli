@@ -10,6 +10,11 @@ public class Bank extends House
     ArrayList <Player> investors = new ArrayList<Player>();
     ArrayList <Double> investment = new ArrayList<Double>();
 
+    void invest(Player player){
+        investors.add(player);
+        investment.add(player.budget/2.0);
+        player.budget=player.budget/2.0;
+    }
     @Override
     void action(Player player)
     {
